@@ -1,37 +1,51 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" type="text/css"/>
 
-<div class="tictactoeHeading">
-    <h1>Tic Tac Toe</h1>
-</div>
+<body>
+    <script type="text/javascript">
+        function lockInput() {
+            document.getElementById('player2Name').value = 'BOT';
+            document.getElementById('player2Name').style.backgroundColor = 'silver';
+            document.getElementById('player2Name').readOnly = true;
+        }
 
-<form>
-    <fieldset>
-        <legend>
-            Please select your game mode:
-        </legend>
-        <div>
-            <input type="radio" id="singleModeRadio" name="gameMode" value="SingleMode" />
-            <label class="radioModeChoice" for="modeChoice1">Single Mode</label>
+        function unlockInput() {
+            document.getElementById("player2Name").readOnly = false;
+        }
+    </script>
 
-            <input type="radio" id="twoPlayersModeRadio" name="gameMode" value="TwoPlayersMode" />
-            <label class="radioModeChoice" for="modeChoice2">Two Players Mode</label>
-        </div>
-    </fieldset>
-
-    <fieldset>
-        <legend>Please enter player's username: </legend>
-        <p>
-            <label class="playerUsername" for="player1Name">Player 1 username:</label>
-            <input type="text" id="player1Name" name="player1Name" />
-        </p>
-
-        <p>
-            <label class="playerUsername" for="player2Name">Player 2 username:</label>
-            <input type="text" id="player2Name" name="player2Name" />
-        </p>
-    </fieldset>
-
-    <div>
-        <button class="playButton" type="submit">Play</button>
+    <div class="tictactoeHeading">
+        <h1>Tic Tac Toe</h1>
     </div>
-</form>
+
+    <form>
+        <fieldset>
+            <legend>
+                Please select your game mode:
+            </legend>
+            <div>
+                <input type="radio" id="singleModeRadio" name="gameMode" value="SingleMode" onclick="lockInput()"/>
+                <label class="radioModeChoice" for="modeChoice1">Single Mode</label>
+
+                <input type="radio" id="twoPlayersModeRadio" name="gameMode" value="TwoPlayersMode" onclick="unlockInput()"/>
+                <label class="radioModeChoice" for="modeChoice2">Two Players Mode</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Please enter player's username: </legend>
+            <p>
+                <label class="playerUsername" for="player1Name">Player 1 username:</label>
+                <input type="text" id="player1Name" name="player1Name" />
+            </p>
+
+            <p>
+                <label class="playerUsername" for="player2Name">Player 2 username:</label>
+                <input type="text" id="player2Name" name="player2Name" />
+            </p>
+        </fieldset>
+
+        <div>
+            <button class="playButton" type="submit">Play</button>
+        </div>
+    </form>
+</body>
