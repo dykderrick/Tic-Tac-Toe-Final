@@ -5,27 +5,30 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tic Tac Toe</title>
+    <title>Tic Tac Toe - {{ game_config['game_mode'] }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
 </head>
 <body>
     <section>
-        <h1 class="game--title">Tic Tac Toe</h1>
+        <h1 class="game--title">Tic Tac Toe - {{ game_config['game_mode'] }}</h1>
         <div class="game--container">
-            <div data-cell-index="0" class="cell"></div>
-            <div data-cell-index="1" class="cell"></div>
-            <div data-cell-index="2" class="cell"></div>
-            <div data-cell-index="3" class="cell"></div>
-            <div data-cell-index="4" class="cell"></div>
-            <div data-cell-index="5" class="cell"></div>
-            <div data-cell-index="6" class="cell"></div>
-            <div data-cell-index="7" class="cell"></div>
-            <div data-cell-index="8" class="cell"></div>
+            {% for i in range(9) %}
+                <div id="cell{{ i }}" data-cell-index="{{ i }}" class="cell"></div>
+            {% endfor %}
         </div>
         <h2 class="game--status"></h2>
         <button class="game--restart">Restart Game</button>
     </section>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script id="game_mode_variable">
+        {{ game_config['game_mode'] }}
+    </script>
+    <script id="player_1_name_variable">
+        {{ game_config['player_1_name'] }}
+    </script>
+    <script id="player_2_name_variable">
+        {{ game_config['player_2_name'] }}
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

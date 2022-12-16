@@ -8,6 +8,12 @@ const winningMessage = () => `Player ${currentPlayer} has won!`;
 const drawMessage = () => `Game ended in a draw!`;
 const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
 
+let game_mode = document.getElementById("game_mode_variable").innerHTML.replace(/\s+/g,'');
+let player_1_name = document.getElementById("player_1_name_variable").innerHTML.replace(/\s+/g,'');
+let player_2_name = document.getElementById("player_2_name_variable").innerHTML.replace(/\s+/g,'');
+
+let isSingleModeGame = game_mode === 'SingleMode';
+
 statusDisplay.innerHTML = currentPlayerTurn();
 
 const winningConditions = [
@@ -26,9 +32,38 @@ function handleCellPlayed(clickedCell, clickedCellIndex) {
     clickedCell.innerHTML = currentPlayer;
 }
 
+function getBotRandomStepCellId() {
+    let freeCellIds = [];
+
+    gameState.forEach(function (value, index) {
+        if (value === "") {
+            freeCellIds.push(index);
+        }
+    });
+
+    return 'cell' + freeCellIds[Math.floor(Math.random() * freeCellIds.length)].toString()
+
+}
+
 function handlePlayerChange() {
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
-    statusDisplay.innerHTML = currentPlayerTurn();
+    if (gameActive) {
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
+    }
+
+    if (isSingleModeGame && currentPlayer === "O") {  // BOT step
+        document.getElementById(getBotRandomStepCellId()).click();
+
+        handleResultValidation();
+
+        // Toggle Player
+        if (gameActive) {
+            currentPlayer = 'X';
+        }
+    }
+
+    if (gameActive) {
+        statusDisplay.innerHTML = currentPlayerTurn();
+    }
 }
 
 function handleResultValidation() {
@@ -59,8 +94,6 @@ function handleResultValidation() {
         gameActive = false;
         return;
     }
-
-    handlePlayerChange();
 }
 
 function handleCellClick(clickedCellEvent) {
@@ -73,6 +106,7 @@ function handleCellClick(clickedCellEvent) {
 
     handleCellPlayed(clickedCell, clickedCellIndex);
     handleResultValidation();
+    handlePlayerChange();
 }
 
 function handleRestartGame() {
