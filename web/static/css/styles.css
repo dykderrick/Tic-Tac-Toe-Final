@@ -1,0 +1,55 @@
+/* BEGIN CONFIG index.html */
+.tictactoeHeading {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: blueviolet;
+}
+
+.playerUsername {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: blueviolet;
+}
+
+.radioModeChoice {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: blueviolet;
+}
+
+.playButton {
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px;
+}
+/* END CONFIG index.html */
+
+
+/* BEGIN CONFIG play.html */
+td {
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+}
+/* END CONFIG play.html */
+
+
+/* BEGIN CONFIG stats.html */
+
+
+
+/* END CONFIG stats.html */
