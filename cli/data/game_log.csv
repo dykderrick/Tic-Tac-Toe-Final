@@ -1,0 +1,13 @@
+game_id,playerX_username,playerO_username,game_result
+52564333-c76e-4050-9133-22bac425a68b,alice,bob,X
+be955da8-d697-44a7-8c97-6383b50fa6be,dykderrick,bob,X
+6b7258fc-e4cd-4c01-a3bc-2b14b5693148,dykderrick,alice,X
+03488c73-038c-4e2e-855f-e6c83d2b8209,alice,bob,DRAW
+870cd15a-f4fd-4982-8a4c-3e14c3f68c2d,dykderrick,BOT,X
+2c01bacb-7b0e-4e97-b6df-271a03a105cb,dykderrick,BOT,X
+9f1c3fcf-8c8e-43b6-817f-3b71b9447c8c,bob,BOT,X
+f44f40d7-8d3a-4502-976e-cfca7c1085dd,jack,BOT,X
+0afb639c-6645-42d7-b57e-19d45e7b0e7d,alice,BOT,X
+d9c65668-88e1-4f27-b944-e2013f5e16ab,dykderrick,BOT,X
+706603aa-0027-4c37-b04e-87798b2e3050,bob,BOT,O
+28c01235-434b-4677-a8e8-6410d9c66a82,dykderrick,BOT,X
